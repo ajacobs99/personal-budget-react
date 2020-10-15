@@ -22,20 +22,12 @@ function App() {
      <Hero/>
      <div className="mainContainer">
        <Switch>
-          <Route path="/about">
-              <AboutPage/>
-          </Route>
-
-          <Route path="/login">
-              <LoginPage/>
-          </Route>
-
-          <Route path="/">
-              <HomePage/>
-          </Route>
+         <Route path="/about"> <AboutPage/></Route>
+         <Route path="/login"> <LoginPage/></Route>
+         <Route path="/"> <HomePage/></Route>
        </Switch>
      </div>
-     <HomePage/>
+     {/* <HomePage/> */}
      <Footer/>
     </Router>
   );

@@ -16,7 +16,7 @@ function Menu() {
             <li><Link itemProp="url" to="">Home</Link></li>
             <li><Link itemProp="url" to="about">About</Link></li>
             <li><Link itemProp="url" to="login">Login</Link></li>           
-            <li><Link className="skip-to-content-link" href="#main">Skip to Content</Link></li>
+            {/* <li><Link className="skip-to-content-link" href="#main">Skip to Content</Link></li> */}
         </ul>
     </div>
   );
