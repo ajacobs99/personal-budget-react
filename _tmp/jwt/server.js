@@ -6,6 +6,12 @@ const exjwt = require('express-jwt');
 const bodyParser = require('body-parser'); 
 const path = require('path'); 
 
+// const state = {}; 
+// const title = ''
+// const url = 'index.html'
+
+// history.pushState(state, title, url); 
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); 
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization'); 
@@ -72,6 +78,13 @@ app.get('/api/prices', jwtMW, (req, res) => {
     res.json({
         success: true, 
         myContent: 'This is price!!!'
+    });  
+}); 
+// code exercise 4
+app.get('/api/settings', jwtMW, (req, res) => {
+    res.json({
+        success: true, 
+        myContent: 'This is settings!!!'
     });  
 }); 
 

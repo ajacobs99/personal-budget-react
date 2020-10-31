@@ -24,6 +24,9 @@
                 <div >
                     <button onclick="login()">Login</button>
                     <button onclick="getDashboard()">Get Dashboard</button>
+                    <!-- code exercise 4 -->
+                    <button onclick="getSettings()">Get Settings</button>
+
                 </div>
             </main>
     </div>
@@ -41,6 +44,7 @@
                 document.getElementById('username').value = ''; 
                 document.getElementById('password').value = ''; 
                 if (res && res.data && res.data.success){
+                    // history.pushState(null, null, 'api/Settings'); 
                     const token = res.data.token; 
                     localStorage.setItem('jwt', token); 
                     getDashboard(); 
@@ -56,11 +60,29 @@
             }
         }).then(res => {
             if (res && res.data && res.data.success) {
+                history.pushState(null, null, 'api/dashboard'); 
                 document.querySelector('h1.row').innerHTML = 'Dashboard'; 
                 document.querySelector('main').innerHTML = res.data.myContent; 
             }
         }); 
     } 
+// code exercise 4 
+    function getSettings(){
+        const token = localStorage.getItem('jwt'); 
+        axios.get('/api/settings', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => {
+            if (res && res.data && res.data.success) {
+                history.pushState(null, null, 'api/settings'); 
+                document.querySelector('h1.row').innerHTML = 'Settings'; 
+                document.querySelector('main').innerHTML = res.data.myContent; 
+                
+            }
+        }); 
+    }
+
 
 </script>
 
